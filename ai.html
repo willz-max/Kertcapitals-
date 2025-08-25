@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Hamburger Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #01010f;
+            color: #d2cee9;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(1, 1, 15, 0.95);
+            backdrop-filter: blur(10px);
+            color: #d2cee9;
+            padding: 16px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99999;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 87px;
+            height: auto;
+        }
+
+        .nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #d2cee9;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2f27ce;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #2f27ce;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .sign-in {
+            color: #2f27ce;
+            border: 2px solid #2f27ce;
+            background-color: transparent;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .sign-in:hover {
+            background-color: #2f27ce;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .get-started {
+            background-color: #2f27ce;
+            border: 2px solid #2f27ce;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .get-started:hover {
+            background-color: #1a1a7e;
+            border-color: #1a1a7e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(47, 39, 206, 0.3);
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            z-index: 100001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu:hover {
+            transform: scale(1.1);
+        }
+
+        .hamburger-line {
+            width: 28px;
+            height: 3px;
+            background-color: #d2cee9;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        .hamburger-line:nth-child(1) {
+            margin-bottom: 6px;
+        }
+
+        .hamburger-line:nth-child(2) {
+            margin-bottom: 6px;
+        }
+
+        /* Active state animations */
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+            background-color: #ff4757;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+            background-color: #ff4757;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(1, 1, 15, 0.98) 0%, rgba(47, 39, 206, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border-left: 2px solid #2f27ce;
+            padding: 100px 30px 30px;
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 100000;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .mobile-menu-title {
+            color: #2f27ce;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #ff4757;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(255, 71, 87, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 40px;
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid rgba(210, 206, 233, 0.1);
+        }
+
+        .mobile-nav-links li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav-links a {
+            color: #d2cee9;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 20px 10px;
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-nav-links a::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(47, 39, 206, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .mobile-nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #2f27ce;
+            padding-left: 20px;
+            background-color: rgba(47, 39, 206, 0.05);
+        }
+
+        .mobile-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .mobile-cta a {
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-cta .sign-in {
+            color: #2f27ce;
+            border: 2px solid #2f27ce;
+            background-color: transparent;
+        }
+
+        .mobile-cta .sign-in:hover {
+            background-color: #2f27ce;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .mobile-cta .get-started {
+            background-color: #2f27ce;
+            border: 2px solid #2f27ce;
+            color: white;
+        }
+
+        .mobile-cta .get-started:hover {
+            background-color: #1a1a7e;
+            border-color: #1a1a7e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(47, 39, 206, 0.4);
+        }
+
+        /* Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Demo content for spacing */
+        .demo-content {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .demo-content h1 {
+            color: #2f27ce;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 16px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+            
+            .nav-links,
+            .cta-buttons {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 15px;
+            }
+            
+            .logo img {
+                width: 70px;
+            }
+            
+            .mobile-menu {
+                width: 100%;
+                border-left: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='87' height='40' viewBox='0 0 87 40'%3E%3Crect width='87' height='40' fill='%232f27ce'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold' font-size='16'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Logo">
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">What we offer</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="#" class="sign-in">Sign In</a>
+            <a href="#" class="get-started">Get Started today</a>
+        </div>
+
+        <!-- Animated Hamburger Menu -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-title">Menu</div>
+            <button class="close-btn" id="closeBtn">×</button>
+        </div>
+        
+        <ul class="mobile-nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#products">What we offer</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#about">About Us</a></li>
+        </ul>
+        
+        <div class="mobile-cta">
+            <a href="#" class="sign-in">Sign In</a>
+            <a href="#" class="get-started">Get Started</a>
+        </div>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <h1>Animated Hamburger Navigation</h1>
+        <p>Resize your browser window to see the mobile navigation in action!</p>
+    </div>
+
+    <script>
+        class AnimatedHamburgerNav {
+            constructor() {
+                this.hamburgerMenu = document.getElementById('hamburgerMenu');
+                this.mobileMenu = document.getElementById('mobileMenu');
+                this.menuOverlay = document.getElementById('menuOverlay');
+                this.closeBtn = document.getElementById('closeBtn');
+                this.mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+                
+                this.isMenuOpen = false;
+                
+                // Check if required elements exist before initializing
+                if (this.hamburgerMenu && this.mobileMenu && this.menuOverlay && this.closeBtn) {
+                    this.init();
+                } else {
+                    console.warn('AnimatedHamburgerNav: Required elements not found');
+                }
+            }
+
+            init() {
+                // Hamburger click event
+                this.hamburgerMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.toggleMenu();
+                });
+
+                // Close button click event
+                this.closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.closeMenu();
+                });
+
+                // Overlay click event
+                this.menuOverlay.addEventListener('click', () => {
+                    this.closeMenu();
+                });
+
+                // Mobile links click events
+                this.mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                });
+
+                // Click outside to close
+                document.addEventListener('click', (e) => {
+                    if (this.isMenuOpen && 
+                        !this.mobileMenu.contains(e.target) && 
+                        !this.hamburgerMenu.contains(e.target)) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Escape key to close
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.isMenuOpen) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && this.isMenuOpen) {
+                        this.closeMenu();
+                    }
+                });
+            }
+
+            toggleMenu() {
+                if (this.isMenuOpen) {
+                    this.closeMenu();
+                } else {
+                    this.openMenu();
+                }
+            }
+
+            openMenu() {
+                if (!this.hamburgerMenu || !this.mobileMenu || !this.menuOverlay) return;
+                
+                this.isMenuOpen = true;
+                this.hamburgerMenu.classList.add('active');
+                this.mobileMenu.classList.add('active');
+                this.menuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Add entrance animation delay for menu items
+                this.mobileLinks.forEach((link, index) => {
+                    link.style.animation = `slideInRight 0.3s ease forwards ${index * 0.1}s`;
+                });
+            }
+
+            closeMenu() {
+                if (!this.hamburgerMenu || !this.mobileMenu || !this.menuOverlay) return;
+                
+                this.isMenuOpen = false;
+                this.hamburgerMenu.classList.remove('active');
+                this.mobileMenu.classList.remove('active');
+                this.menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Remove animation
+                this.mobileLinks.forEach(link => {
+                    link.style.animation = '';
+                });
+            }
+        }
+
+        // Add CSS animation for menu items entrance
+        const styleNav = document.createElement('style');
+        styleNav.textContent = `
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(styleNav);
+
+        // Initialize the navigation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimatedHamburgerNav();
+        });
+    </script>
+</body>
+</html>
