@@ -1,431 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Hamburger Navigation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kertcapitals</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- for mullish font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/home.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="assets/image/cLogo.PNG" type="image/x-icon">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+        :root {
+            --primary-blue: #0066ff;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
         }
 
         body {
-            background-color: #01010f;
-            color: #d2cee9;
-            overflow-x: hidden;
-        }
-
-        /* Navigation Styles */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(1, 1, 15, 0.95);
-            backdrop-filter: blur(10px);
-            color: #d2cee9;
-            padding: 16px 40px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 99999;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .nav-content {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            width: 87px;
-            height: auto;
-        }
-
-        .nav-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            color: #d2cee9;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 8px 0;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #2f27ce;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #2f27ce;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .sign-in {
-            color: #2f27ce;
-            border: 2px solid #2f27ce;
-            background-color: transparent;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .sign-in:hover {
-            background-color: #2f27ce;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             color: white;
-            transform: translateY(-1px);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
         }
-
-        .get-started {
-            background-color: #2f27ce;
-            border: 2px solid #2f27ce;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .get-started:hover {
-            background-color: #1a1a7e;
-            border-color: #1a1a7e;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(47, 39, 206, 0.3);
-        }
-
-        /* Animated Hamburger Menu */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
+        .features-con{
             position: relative;
-            justify-content: center;
-            align-items: center;
-            z-index: 100001;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger-menu:hover {
-            transform: scale(1.1);
-        }
-
-        .hamburger-line {
-            width: 28px;
-            height: 3px;
-            background-color: #d2cee9;
-            border-radius: 2px;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            position: relative;
-        }
-
-        .hamburger-line:nth-child(1) {
-            margin-bottom: 6px;
-        }
-
-        .hamburger-line:nth-child(2) {
-            margin-bottom: 6px;
-        }
-
-        /* Active state animations */
-        .hamburger-menu.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
-            background-color: #ff4757;
-        }
-
-        .hamburger-menu.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-
-        .hamburger-menu.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(9px, -9px);
-            background-color: #ff4757;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
             height: 100vh;
-            background: linear-gradient(135deg, rgba(1, 1, 15, 0.98) 0%, rgba(47, 39, 206, 0.1) 100%);
-            backdrop-filter: blur(20px);
-            border-left: 2px solid #2f27ce;
-            padding: 100px 30px 30px;
-            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 100000;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .mobile-menu-title {
-            color: #2f27ce;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: #ff4757;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+        }
+          .central-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 600px;
+            padding: 0 20px;
         }
 
-        .close-btn:hover {
-            background-color: rgba(255, 71, 87, 0.1);
-            transform: rotate(90deg);
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .mobile-nav-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            margin-bottom: 40px;
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.5;
         }
 
-        .mobile-nav-links li {
-            border-bottom: 1px solid rgba(210, 206, 233, 0.1);
-        }
-
-        .mobile-nav-links li:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-nav-links a {
-            color: #d2cee9;
+        .cta-link {
+            color: #4a9eff;
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: 500;
-            padding: 20px 10px;
-            display: block;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: color 0.3s ease;
         }
 
-        .mobile-nav-links a::before {
-            content: '';
+        .cta-link:hover {
+            color: #6bb3ff;
+        }
+
+        .floating-icon {
             position: absolute;
-            left: -100%;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(47, 39, 206, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .mobile-nav-links a:hover::before {
-            left: 100%;
-        }
-
-        .mobile-nav-links a:hover {
-            color: #2f27ce;
-            padding-left: 20px;
-            background-color: rgba(47, 39, 206, 0.05);
-        }
-
-        .mobile-cta {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        .mobile-cta a {
-            padding: 15px 25px;
-            border-radius: 8px;
-            cursor: pointer;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            position: relative;
-            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .mobile-cta .sign-in {
-            color: #2f27ce;
-            border: 2px solid #2f27ce;
-            background-color: transparent;
+        .floating-icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .mobile-cta .sign-in:hover {
-            background-color: #2f27ce;
-            color: white;
-            transform: translateY(-2px);
+        .floating-icon img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
 
-        .mobile-cta .get-started {
-            background-color: #2f27ce;
-            border: 2px solid #2f27ce;
-            color: white;
+        /* Positioning for floating icons */
+        .icon-1 { top: 10%; left: 8%; animation-delay: 0s; }
+        .icon-2 { top: 5%; left: 25%; animation-delay: 1s; }
+        .icon-3 { top: 15%; left: 45%; animation-delay: 2s; }
+        .icon-4 { top: 8%; right: 30%; animation-delay: 0.5s; }
+        .icon-5 { top: 12%; right: 15%; animation-delay: 1.5s; }
+        .icon-6 { top: 12%; right: 5%; animation-delay: 2.5s; }
+
+        .icon-7 { top: 35%; left: 5%; animation-delay: 3s; }
+        .icon-8 { top: 30%; left: 18%; animation-delay: 0.8s; }
+        .icon-9 { top: 40%; right: 12%; animation-delay: 1.8s; }
+        .icon-10 { top: 45%; right: 3%; animation-delay: 2.8s; }
+
+        .icon-11 { bottom: 35%; left: 3%; animation-delay: 1.2s; }
+        .icon-12 { bottom: 40%; left: 15%; animation-delay: 2.2s; }
+        .icon-13 { bottom: 30%; left: 30%; animation-delay: 3.2s; }
+        .icon-14 { bottom: 45%; right: 25%; animation-delay: 0.3s; }
+        .icon-15 { bottom: 35%; right: 8%; animation-delay: 1.3s; }
+
+        .icon-16 { bottom: 15%; left: 12%; animation-delay: 2.3s; }
+        .icon-17 { bottom: 8%; left: 28%; animation-delay: 0.7s; }
+        .icon-18 { bottom: 12%; right: 35%; animation-delay: 1.7s; }
+        .icon-19 { bottom: 5%; right: 18%; animation-delay: 2.7s; }
+        .icon-20 { bottom: 10%; right: 8%; animation-delay: 3.5s; }
+
+        /* Additional icons for fuller coverage */
+        .icon-21 { top: 25%; left: 2%; animation-delay: 4s; }
+        .icon-22 { top: 55%; left: 8%; animation-delay: 4.5s; }
+        .icon-23 { top: 60%; right: 5%; animation-delay: 5s; }
+        .icon-24 { top: 20%; right: 2%; animation-delay: 5.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-15px) rotate(0.5deg); }
         }
 
-        .mobile-cta .get-started:hover {
-            background-color: #1a1a7e;
-            border-color: #1a1a7e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(47, 39, 206, 0.4);
-        }
-
-        /* Overlay */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 99999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Demo content for spacing */
-        .demo-content {
-            margin-top: 100px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .demo-content h1 {
-            color: #2f27ce;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            nav {
-                padding: 16px 30px;
-            }
-        }
-
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            nav {
-                padding: 16px 20px;
+            .main-title {
+                font-size: 2.5rem;
             }
             
-            .nav-links,
-            .cta-buttons {
-                display: none;
-            }
-
-            .hamburger-menu {
-                display: flex;
+            .subtitle {
+                font-size: 1rem;
             }
             
-            .mobile-menu {
-                width: 85%;
+            .floating-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-icon img {
+                width: 32px;
+                height: 32px;
             }
         }
 
         @media (max-width: 480px) {
-            nav {
-                padding: 12px 15px;
+            .main-title {
+                font-size: 2rem;
             }
             
-            .logo img {
-                width: 70px;
+            .floating-icon {
+                width: 45px;
+                height: 45px;
             }
             
-            .mobile-menu {
-                width: 100%;
-                border-left: none;
+            .floating-icon img {
+                width: 28px;
+                height: 28px;
             }
         }
     </style>
+    <!-- <link rel="stylesheet" href="assets/theme.css"> -->
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
+ <video muted autoplay loop class="hero-img">
+        <source src="assets/image/main-hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero swiper">
+        <!-- <nav>
+            <div class="logo">
+                <img src="assets/image/main-logo.png" alt="">
+            </div>
+
+            <div class="fulling">
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#Products">What we offer</a></li>
+                    <li><a href="#Testimonials">Testimonials</a></li>
+                    <li><a href="#aboutUs">About Us</a></li>
+                </ul>
+
+                <div class="cta-buttons">
+                    <a href="login.html" class="sign-in">Sign In</a>
+                    <a href="sign-up.html" class="get-started">Get Started today</a>
+                </div>
+            </div>
+
+
+            <div class="menu-toggle going">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div style="display: none;" class="menu-toggle gone">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#Products">What we offer</a></li>
+                    <li><a href="#Testimonials">Testimonials</a></li>
+                    <li><a href="#aboutUs">About Us</a></li>
+                </ul>
+
+                <div class="mobile-cta">
+                    <button class="sign-in">Sign In</button>
+                    <button class="get-started">Get Started</button>
+                </div>
+            </div>
+
+        </nav> -->
+        
+          <nav>
         <div class="logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='87' height='40' viewBox='0 0 87 40'%3E%3Crect width='87' height='40' fill='%232f27ce'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold' font-size='16'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Logo">
+            <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='87' height='40' viewBox='0 0 87 40'%3E%3Crect width='87' height='40' fill='%232f27ce'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='Arial, sans-serif' font-weight='bold' font-size='16'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Logo"> -->
+             <p>Kertcapitals</p>
         </div>
         
         <div class="nav-center">
@@ -439,7 +247,7 @@
 
         <div class="cta-buttons">
             <a href="#" class="sign-in">Sign In</a>
-            <a href="#" class="get-started">Get Started today</a>
+            <a href="#" class="get-started">Join Us Today</a>
         </div>
 
         <!-- Animated Hamburger Menu -->
@@ -466,146 +274,675 @@
         
         <div class="mobile-cta">
             <a href="#" class="sign-in">Sign In</a>
-            <a href="#" class="get-started">Get Started</a>
+            <a href="#" class="get-started">Join Us Today</a>
         </div>
-    </div>
-    
-    <!-- Overlay -->
+    </div>   
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Demo Content -->
-    <div class="demo-content">
-        <h1>Animated Hamburger Navigation</h1>
-        <p>Resize your browser window to see the mobile navigation in action!</p>
+        <div class="wrapper">
+            <ul class="list swiper-wrapper">
+                <li class="list-items swiper-slide">
+                    <div class="overlay">
+                        <div>
+                            <h1 class="animate__animated animate__fadeInDown">Empowering Your <span class="highlight-s">Financial Future</span></h1>
+                            <p class="animate__animated animate__zoomIn animate__delay-4">
+                                Take control of your investments and achieve your goals
+                            </p>
+                            <div class="btn">
+                                <a href="">Join The Team</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <img class="hero-img" src="assets/image/hero-1.jpg" alt=""> -->
+                    <!-- <video muted autoplay loop class="hero-img">
+                        <source src="assets/image/video-1.mp4" type="video/mp4">
+                    </video> -->
+
+                </li>
+                <li class="list-items swiper-slide">
+                    <div class="overlay">
+                        <div>
+                            <h1 class="animate__animated animate__fadeInDown">Trade with Confidence, <span class="highlight-s">Grow with Ease</span></h1>
+                            <p class="animate__animated animate__zoomIn animate__delay-4">
+                                Simplify your trading journey and maximize your gains
+                            </p>
+                            <div class="btn">
+                                <a href="">Join The Team</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <img class="hero-img" src="assets/image/hero-2.jpg" alt=""> -->
+                    <!-- <video muted autoplay loop class="hero-img">
+                        <source src="assets/image/video-2.mp4" type="video/mp4">
+                    </video> -->
+                </li>
+                <li class="list-items swiper-slide">
+                    <div class="overlay">
+                        <div>
+                            <h1 class="animate__animated animate__fadeInDown ">Where Trading Meets <span class="highlight-s">Innovation</span></h1>
+                            <p class="animate__animated animate__zoomIn animate__delay-4">
+                                Cutting-edge technology for smarter trading
+                            </p>
+                            <div class="btn">
+                                <a href="">Join The Team</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <img class="hero-img" src="assets/image/hero-3.jpg" alt=""> -->
+
+                </li>
+            </ul>
+            <!-- <div class="swiper-pagination"></div> -->
+            <div id="slide-btn" class="swiper-button-prev"></div>
+            <div id="slide-btn" class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!-- <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+            
+        </div>
+        <div class="last-updated" id="lastUpdated">Loading...</div>
+    </div> -->
+    <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no"
+        width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0"
+        style="border:0;margin:-15px;padding:0;"></iframe>
+
+
+    <div id="investment-popup">
+        Someone from <span class="country">Italy</span> just invested <br>
+        <strong class="amount">$5000</strong>.
     </div>
 
-    <script>
-        class AnimatedHamburgerNav {
-            constructor() {
-                this.hamburgerMenu = document.getElementById('hamburgerMenu');
-                this.mobileMenu = document.getElementById('mobileMenu');
-                this.menuOverlay = document.getElementById('menuOverlay');
-                this.closeBtn = document.getElementById('closeBtn');
-                this.mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+ 
+    <!-- features -->
+    <section id="features" class="powerful-features-section">
+        <h2>Powerful Features for Successful Trading</h2>
+        <p class="features-tagline">Our platform combines cutting-edge technology with user-friendly tools to help you
+            maximize your trading potential.</p>
+            <!-- my feture main -->
+             <div class="features-con">
+        <div class="central-content">
+            <h1 class="main-title">Markets<br>in the Palm of Your Hand</h1>
+            <p class="subtitle">Add up to 30 API connections and unlimited<br>manual wallets and exchanges.</p>
+            <a href="#" class="cta-link">View all our connections</a>
+        </div>
+
+        <!-- Floating Icons - Replace src with your token images -->
+        <div class="floating-icon icon-1">
+            <img src="assets/image/bitcoin.png" alt="Bitcoin">
+        </div>
+        <div class="floating-icon icon-2">
+            <img src="assets/image/ethereum.png" alt="Ethereum">
+        </div>
+        <div class="floating-icon icon-3">
+            <img src="assets/image/cardano.png" alt="Cardano">
+        </div>
+        <div class="floating-icon icon-4">
+            <img src="assets/image/polkadot.png" alt="Polkadot">
+        </div>
+        <!-- <div class="floating-icon icon-5">
+            <img src="https://via.placeholder.com/40/1BA0E2/FFFFFF?text=LINK" alt="Chainlink">
+        </div> -->
+        <!-- <div class="floating-icon icon-6">
+            <img src="https://via.placeholder.com/40/9C3493/FFFFFF?text=CRV" alt="Curve">
+        </div> -->
+        <div class="floating-icon icon-7">
+            <img src="assets/image/tron.png" alt="Tron">
+        </div>
+        <div class="floating-icon icon-8">
+            <img src="assets/image/dash.png" alt="Dash">
+        </div>
+        <div class="floating-icon icon-9">
+            <img src="assets/image/xrp.png" alt="XRP">
+        </div>
+        <div class="floating-icon icon-10">
+            <img src="assets/image/tether.jpg" alt="Tether">
+        </div>
+        <div class="floating-icon icon-11">
+            <img src="assets/image/litecoin.png" alt="Litecoin">
+        </div>
+        <!-- <div class="floating-icon icon-12">
+            <img src="assets/image/" alt="DeFiChain">
+        </div> -->
+        <div class="floating-icon icon-13">
+            <img src="assets/image/binance.png" alt="Binance">
+        </div>
+        <div class="floating-icon icon-14">
+            <img src="assets/image/atomicwallet.png" alt="Cosmos">
+        </div>
+        <div class="floating-icon icon-15">
+            <img src="assets/image/bitcoin.png" alt="Bitcoin Cash">
+        </div>
+        <div class="floating-icon icon-16">
+            <img src="assets/image/algorand.png" alt="Algorand">
+        </div>
+        <div class="floating-icon icon-17">
+            <img src="assets/image/terra.png" alt="Terra">
+        </div>
+        <div class="floating-icon icon-18">
+            <img src="assets/image/polygon.png" alt="Polygon">
+        </div>
+        <!-- <div class="floating-icon icon-19">
+            <img src="assets/image/av" alt="Avalanche">
+        </div> -->
+        <div class="floating-icon icon-20">
+            <img src="assets/image/stellar.png" alt="Stellar">
+        </div>
+        <div class="floating-icon icon-21">
+            <img src="assets/image/solana.png" alt="Solana">
+        </div>
+<!-- 
+        <div class="floating-icon icon-23">
+            <img src="https://via.placeholder.com/40/FFD700/FFFFFF?text=FTT" alt="FTX Token">
+        </div> -->
+        <div class="floating-icon icon-24">
+            <img src="assets/image/metamask.9d0bcbd4.png" alt="Metamask">
+        </div>
+    </div>
+      
+    </section>
+    <!-- product -->
+    <section class="services-section" id="Products">
+        <div class="section-title">
+            <h2>Our Services</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="assets/image/hero-1.jpg" alt="Real Estate" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Copy Trading</h3>
+                    <p class="service-description">
+                        Automatically replicate the trades of successful investors in real-time. Our copy trading system
+                        allows you to follow expert traders and mirror their strategies with customizable risk
+                        parameters. Perfect for beginners and experienced traders looking to diversify their approach.
+
+
+                    </p>
+                    <!-- <button class="learn-more-btn">Learn More</button> -->
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="assets/image/staking-main.jpg" alt="Medical Cannabis" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Staking</h3>
+                    <p class="service-description">
+                        Earn passive income by staking your crypto assets. Our staking platform offers competitive
+                        yields on a wide range of cryptocurrencies with flexible lock-up periods. Stake your assets to
+                        support network operations while generating returns without active trading.
+                    </p>
+                    <!-- <button class="learn-more-btn">Learn More</button> -->
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="assets/image/hero-3.jpg" alt="Healthcare" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Stock
+                    </h3>
+                    <p class="service-description">
+                        Trade thousands of stocks from major exchanges worldwide. Our stock trading platform offers
+                        advanced charting tools, fundamental analysis data, and commission-free trading on select
+                        markets. Invest in companies you believe in with instant execution.
+                    </p>
+                    <!-- <button class="learn-more-btn">Learn More</button> -->
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                    alt="Business Consulting" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Investment Consulting</h3>
+                    <p class="service-description">
+                        Professional business consulting services designed to help your organization grow and succeed.
+                        We offer strategic planning, operational improvements, and innovative solutions tailored to your
+                        specific needs...
+                    </p>
+                    <!-- <button class="learn-more-btn">Learn More</button> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- achievement -->
+    <section class="achievement">
+        <div class="stats-section">
+            <h1 class="section-title"><span class="title-highlight">Our</span> Numbers</h1>
+            <h2 class="section-subtitle">Achievements of our Company</h2>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" id="traders-count" data-target="23">0</div>
+                    <div class="stat-label">Active Traders</div>
+                    <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="10" cy="8.5" r="5" fill="#667" />
+                        <path d="M10,15c-4.5,0-8,2-8,5v2h16v-2C18,17,14.5,15,10,15z" fill="#667" />
+                        <circle cx="18" cy="10" r="3" fill="#4d8eff" />
+                        <path d="M17,12l2,2l2-2" stroke="#fff" stroke-width="1.5" fill="none" />
+                    </svg>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number" id="market-cap" data-target="3.7">0</div>
+                    <div class="stat-label">Market Capitalization</div>
+                    <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <rect x="4" y="12" width="3" height="8" fill="#4d8eff" />
+                        <rect x="10" y="8" width="3" height="12" fill="#4d8eff" />
+                        <rect x="16" y="4" width="3" height="16" fill="#4d8eff" />
+                        <line x1="2" y1="20" x2="22" y2="20" stroke="#4d8eff" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="tagline-section">
+                <div class="tagline-text">FOR BEGINNERS AND PROS</div>
+                <div class="trading-options-text">
+                    <span class="text-highlight">Trade</span>
+                    <span class="text-normal"> Spot, Margin, Futures & OTC </span>
+                    <span class="text-highlight">on the best trading platform</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- security and review -->
+      <main>
+        <!-- Security Section -->
+        <section class="security-section">
+            <div class="container-testimonies">
+                <div class="section-label">Security</div>
+                <h1 class="main-heading">Your Coins are Never at Risk</h1>
+                <div class="security-description">
+                    <p>We've partnered with <span class="highlight">VEZGO</span>, a SOC2, Type II certified data provider to ensure your data remains secure. Your API keys are never shared with us.</p>
+                    <br>
+                    <p>We employ military-grade encryption and multi-factor authentication to ensure your account remains secure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="Testimonials" class="reviews-section">
+            <div class="container-testimonies">
+                <div class="section-label">Reviews</div>
+                <h2 class="reviews-heading">What Our Customers are Saying</h2>
                 
-                this.isMenuOpen = false;
-                
-                // Check if required elements exist before initializing
-                if (this.hamburgerMenu && this.mobileMenu && this.menuOverlay && this.closeBtn) {
-                    this.init();
-                } else {
-                    console.warn('AnimatedHamburgerNav: Required elements not found');
-                }
-            }
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                           A big shoutout to the team for developing an app that's both powerful and user-friendly! I've got all my crypto assets in one place, and the exit strategy feature is giving me peace of mind with its tax estimates and profit/loss tracking
+                        </div>
+                        <div class="testimonial-author">Camrone steele</div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            i've found my crypto haven with this app! The team's dedication to user experience shines through in every feature, from asset consolidation to exit strategy planning and tax estimation.
+                        </div>
+                        <div class="testimonial-author">George Rutter</div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            You don't have to be super tech savvy to set this app up correctly. Makes it super easy to pull in your exchanges and see automatically other exchanges/coins that can't be brought in through the automatic system. Love to see all my crypto in one, easy to view place!
+                        </div>
+                        <div class="testimonial-author">Greg Olson</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+   
 
-            init() {
-                // Hamburger click event
-                this.hamburgerMenu.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.toggleMenu();
-                });
 
-                // Close button click event
-                this.closeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.closeMenu();
-                });
+    <!-- new acc -->
+    <section class="trading-ex-section">
+        <div class="trading-ex-container">
+            <div class="trading-ex-card">
+                <h2 class="trading-ex-title">Ready to Transform Your Trading Experience?</h2>
+                <p class="trading-ex-description">
+                    Join thousands of successful traders who have already taken control of their financial
+                    future with our comprehensive trading platform.
+                </p>
+                <a href="#" class="trading-ex-button">
+                    Create Free Account
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                // Overlay click event
-                this.menuOverlay.addEventListener('click', () => {
-                    this.closeMenu();
-                });
+    <main id="aboutUs">
+        <section class="about-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Putting our clients first <span class="underline">since 2019</span>
+                </h1>
+                <p class="hero-subtitle">
+                    For more than 7 years, we've been empowering clients by helping them take control of their financial
+                    lives.
+                </p>
+            </div>
 
-                // Mobile links click events
-                this.mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        this.closeMenu();
-                    });
-                });
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Who We Are</h3>
+                    </div>
+                    <div class="card-content">
+                        At Kertcapitals, we pride ourselves on being a trusted and innovative leader in the online
+                        trading industry. Since our inception in 2018, we have continuously strived to provide an
+                        exceptional trading experience for our clients. Our team of dedicated developers, financial
+                        experts, and support managers work tirelessly to ensure that our platform remains reliable,
+                        user-friendly, and profitable for traders of all levels.
+                    </div>
+                </div>
 
-                // Click outside to close
-                document.addEventListener('click', (e) => {
-                    if (this.isMenuOpen && 
-                        !this.mobileMenu.contains(e.target) && 
-                        !this.hamburgerMenu.contains(e.target)) {
-                        this.closeMenu();
-                    }
-                });
+                <div class="info-card muter">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Our Guarantees</h3>
+                    </div>
+                    <div class="card-content">
+                        Kertcapitals is proud to be a Category A member of the Financial Commission, a testament to
+                        the company's commitment to reliability and high-quality service. Our trading platform undergoes
+                        regular Verify My Trade independent examinations to certify the precision and transparency of
+                        trade executions. This ensures our clients can trade with confidence, knowing their investments
+                        are in safe hands.
+                    </div>
+                </div>
 
-                // Escape key to close
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && this.isMenuOpen) {
-                        this.closeMenu();
-                    }
-                });
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Our Mission</h3>
+                    </div>
+                    <div class="card-content">
+                        We believe in empowering individuals and communities to achieve financial independence. In
+                        addition to providing robust trading solutions, we are committed to giving back. Through our
+                        Charity Mission, a portion of our earnings is channeled to support local communities, fostering
+                        positive change and improving the quality of life for people around the world.
+                    </div>
+                </div>
 
-                // Handle window resize
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 768 && this.isMenuOpen) {
-                        this.closeMenu();
-                    }
-                });
-            }
+                <div class="info-card muter">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Our Legacy</h3>
+                    </div>
+                    <div class="card-content">
+                        Over the years, Kertcapitals  Trade has built a reputation for excellence in the financial trading
+                        industry. Our commitment to innovation, transparency, and client satisfaction has established us
+                        as a trusted partner for thousands of traders worldwide. We continue to evolve and adapt to
+                        market changes while maintaining our core values.
+                    </div>
+                </div>
 
-            toggleMenu() {
-                if (this.isMenuOpen) {
-                    this.closeMenu();
-                } else {
-                    this.openMenu();
-                }
-            }
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">A Platform Built for Success</h3>
+                    </div>
+                    <div class="card-content">
+                        Our cutting-edge trading platform is designed with the user in mind, featuring advanced tools,
+                        real-time market data, and intuitive interfaces that make trading accessible to both beginners
+                        and experienced professionals. We continuously invest in technology to ensure our platform
+                        remains at the forefront of the industry.
+                    </div>
+                </div>
 
-            openMenu() {
-                if (!this.hamburgerMenu || !this.mobileMenu || !this.menuOverlay) return;
-                
-                this.isMenuOpen = true;
-                this.hamburgerMenu.classList.add('active');
-                this.mobileMenu.classList.add('active');
-                this.menuOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                
-                // Add entrance animation delay for menu items
-                this.mobileLinks.forEach((link, index) => {
-                    link.style.animation = `slideInRight 0.3s ease forwards ${index * 0.1}s`;
-                });
-            }
+                <div class="info-card muter">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">A Commitment to Excellence</h3>
+                    </div>
+                    <div class="card-content">
+                        Excellence is not just a goal but a standard we uphold in every aspect of our business. From our
+                        customer service to our trading tools, we strive to exceed expectations and deliver exceptional
+                        value to our clients. Our dedication to continuous improvement ensures that we remain a leader
+                        in the trading industry.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="awards-section">
+        <div class="awards-container">
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg class="laurel-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L14.09 8.26L20 9L15 14L16.18 20L12 17.27L7.82 20L9 14L4 9L9.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="award-text">
+                    <h3>Best Forex Broker</h3>
+                    <p>TradeOn Summit 2023</p>
+                </div>
+            </div>
 
-            closeMenu() {
-                if (!this.hamburgerMenu || !this.mobileMenu || !this.menuOverlay) return;
-                
-                this.isMenuOpen = false;
-                this.hamburgerMenu.classList.remove('active');
-                this.mobileMenu.classList.remove('active');
-                this.menuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                
-                // Remove animation
-                this.mobileLinks.forEach(link => {
-                    link.style.animation = '';
-                });
-            }
-        }
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg class="laurel-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L14.09 8.26L20 9L15 14L16.18 20L12 17.27L7.82 20L9 14L4 9L9.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="award-text">
+                    <h3>Best ECN Broker</h3>
+                    <p>Forex Expo Dubai 2023</p>
+                </div>
+            </div>
 
-        // Add CSS animation for menu items entrance
-        const styleNav = document.createElement('style');
-        styleNav.textContent = `
-            @keyframes slideInRight {
-                from {
-                    opacity: 0;
-                    transform: translateX(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-        `;
-        document.head.appendChild(styleNav);
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg class="laurel-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L14.09 8.26L20 9L15 14L16.18 20L12 17.27L7.82 20L9 14L4 9L9.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="award-text">
+                    <h3>Best Trading App</h3>
+                    <p>London Summit 2018</p>
+                </div>
+            </div>
 
-        // Initialize the navigation when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new AnimatedHamburgerNav();
-        });
-    </script>
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg class="laurel-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L14.09 8.26L20 9L15 14L16.18 20L12 17.27L7.82 20L9 14L4 9L9.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="award-text">
+                    <h3>Best Crypto Broker</h3>
+                    <p>Forex Expo Taiwan 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="trade-footer">
+        <div class="trade-footer-container">
+            <div class="trade-footer-main">
+                <!-- Column 1: Logo and Info -->
+                <div class="trade-footer-column">
+                    <a href="#" class="trade-footer-logo">Kertcapitals</a>
+                    <p class="trade-footer-tagline">
+                        The leading platform for copy trading and diversified investment opportunities across global
+                        markets.
+                    </p>
+                    <div class="trade-footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                                </path>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Products -->
+                <div class="trade-footer-column">
+                    <h3 class="trade-footer-heading">Products</h3>
+                    <ul class="trade-footer-links">
+                        <li><a href="#">Copy Trading</a></li>
+                        <li><a href="#">Staking</a></li>
+                        <li><a href="#">ETF Trading</a></li>
+                        <li><a href="#">Stock Trading</a></li>
+                        <li><a href="#">CFD Trading</a></li>
+                        <li><a href="#">Shares</a></li>
+                        <li><a href="#">Metals</a></li>
+                        <li><a href="#">Indices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div class="trade-footer-column">
+                    <h3 class="trade-footer-heading">Company</h3>
+                    <ul class="trade-footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div class="trade-footer-column">
+                    <h3 class="trade-footer-heading">Contact Us</h3>
+                    <div class="trade-footer-contact-item">
+                        <div class="trade-footer-contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="trade-footer-contact-text">
+                            123 Trading Street, Financial District<br>
+                            New York, NY 10001
+                        </div>
+                    </div>
+                    <div class="trade-footer-contact-item">
+                        <div class="trade-footer-contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="trade-footer-contact-text">
+                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        </div>
+                    </div>
+                    <div class="trade-footer-contact-item">
+                        <div class="trade-footer-contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="trade-footer-contact-text">
+                            <a href="mailto:support@Kertcapitals.com">info@Kertcapitals.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trade-footer-divider"></div>
+
+            <div class="trade-footer-bottom">
+                <div class="trade-footer-copyright">
+                    © <span id="copyright-year">2025</span> Kertcapitals.. All rights reserved.
+                </div>
+
+                <div class="trade-footer-legal">
+                    <a href="#">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Risk Disclosure</a>
+                </div>
+            </div>
+
+            <div class="trade-footer-disclaimer">
+                Risk Warning: Trading financial instruments carries a high level of risk to your capital with the
+                possibility of losing more than your initial investment. Trading is not suitable for everyone and you
+                should ensure you understand the risks involved.
+            </div>
+        </div>
+    </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/script/script.js"></script>
 </body>
+
 </html>
