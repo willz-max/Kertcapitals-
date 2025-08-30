@@ -1100,11 +1100,11 @@
             }
         }
 
-        .testimonial-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+        /* .testimonial-row {
+            display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+        } */
 
         .carousel-indicators {
             display: flex;
@@ -1494,7 +1494,7 @@
             }
 
             .tools-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 20px;
             }
 
@@ -1816,7 +1816,9 @@
 #live-price{
     scroll-margin-top: 80px;
 }
-
+#services{
+     scroll-margin-top: 80px;
+}
 /***** NEW CONTACT SECTION STYLES *****/
 .contact-section {
     padding: 100px 0;
@@ -1837,8 +1839,8 @@
 }
 
 .contact-form-wrapper h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 400;
     margin-bottom: 30px;
     color: #fff;
 }
@@ -1961,6 +1963,8 @@ footer {
   margin: 0 auto;
   padding: 0 20px;
 }
+/* incase */
+
 
 .trade-footer-main {
   display: flex;
@@ -1968,6 +1972,8 @@ footer {
   justify-content: space-between;
   margin-bottom: 50px;
 }
+
+
 
 .trade-footer-column {
   margin-bottom: 30px;
@@ -2120,6 +2126,108 @@ footer {
     gap: 10px;
   }
 }
+.product-section-dark {
+  background: #111; /* Dark background to match footer */
+  color: #ddd;
+}
+
+.product-section-dark .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.product-section-dark .title-highlight {
+  color: #4d8eff; /* same highlight as testimonials */
+}
+
+.product-section-dark .section-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #aaa;
+}
+
+.product-feature {
+  margin-bottom: 60px;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.feature-box {
+  margin-top: 20px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feature-box-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #4d8eff;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+  color: #ccc;
+  position: relative;
+  padding-left: 20px;
+}
+
+.feature-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #4d8eff;
+}
+
+.feature-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.cta-button {
+  display: inline-block;
+  background: #4d8eff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #366bd1;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .product-feature {
+    text-align: center;
+  }
+  .feature-content {
+    margin-bottom: 20px;
+  }
+}
+
 
 
 
@@ -2133,9 +2241,9 @@ footer {
         
         <div class="nav-center">
             <ul class="nav-links">
-                <li><a href="#about">ABOUT US</a></li>
                 <li><a href="#live-price">LIVE PRICE</a></li>
                 <li><a href="#services">SERVICES</a></li>
+                 <li><a href="#about">ABOUT US</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
         </div>
@@ -2159,9 +2267,9 @@ footer {
         </div>
         
         <ul class="mobile-nav-links">
-            <li><a href="#about">About Us</a></li>
             <li><a href="#live-price">Live Price</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         
@@ -2324,157 +2432,340 @@ footer {
 
    
 
-    <section class="testimonials-section" id="about">
+
+
+
+
+
+  <!-- live price section -->
+   
+
+   <section class="live-price-section" id="live-price">
         <div class="container">
-            <h2 class="testimonials-title">Loved Across the Globe</h2>
+             <h2 class="section-title text-center mt-5">live price</h2>
+              <p class="text-center about-us-subtitle">Here whats going on in the market at the moment.</p>
 
-            <div class="testimonials-carousel">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-row">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Kertcapitals is a financial wizard. Their ability to foresee market trends and recommend
-                                timely actions is remarkable. I've achieved significant growth in my investments under
-                                their guidance. They're not just financial advisors; they're strategic partners in
-                                wealth-building."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-1.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Miller</h6>
-                                    <small>Crypto Enthusiast | Cosmos</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "I've been a client of Kertcapitals for years, and their dedication to my financial success
-                                has never wavered. Their well-rounded expertise covers everything from retirement
-                                planning to tax-efficient investing. They're an invaluable asset in securing my
-                                financial future."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-2.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Yousaf</h6>
-                                    <small>Retirement Planner | Nebula</small>
-                                </div>
+              <div class="row">
+      <div class="col-sm-6 col-xs-12 py-1" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000">
+                        <!-- column start -->
+                        <div style="height:460px; background-color: #1D2330; overflow:hidden; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%;padding:1px;padding: 0px; margin: 0px; width: 100%;">
+                            <div style="height:440px; padding:0px; margin:0px; width: 100%;">
+                                <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=859&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="testimonial-slide">
-                    <div class="testimonial-row">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "The copy trading feature is game-changing! I connected with top performers and my
-                                portfolio grew by 45% in just 6 months. The platform is intuitive and the community
-                                aspect makes trading feel less isolating. Highly recommend for both beginners and
-                                experts."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-3.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Sarah Chen</h6>
-                                    <small>Day Trader | Singapore</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "What sets Kertcapitals apart is their transparency and risk management. Every trade is
-                                tracked, every strategy is explained. I've learned more about trading in 3 months here
-                                than in years of going solo. The inverse feature saved me from major losses!"
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-4.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Robert Kim</h6>
-                                    <small>Portfolio Manager | Seoul</small>
-                                </div>
+                    <!-- column end -->
+                    <div class="col-sm-6 col-xs-12 py-1" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1000">
+                        <!-- column start -->
+                        <div style="height:460px; background-color: #1D2330; overflow:hidden; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; padding:1px;padding: 0px; margin: 0px; width: 100%;">
+                            <div style="height:440px; padding:0px; margin:0px; width: 100%;">
+                                <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=145&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
                             </div>
                         </div>
                     </div>
+                    <!-- column end -->
                 </div>
 
-                <div class="testimonial-slide">
-                    <div class="testimonial-row">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "From a complete novice to generating consistent monthly returns - Kertcapitals made it
-                                possible. The educational resources, combined with real-time copying, created the
-                                perfect learning environment. My confidence in trading has skyrocketed."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-4.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Amanda Torres</h6>
-                                    <small>New Trader | Miami</small>
-                                </div>
-                            </div>
+        </div>
+   </section>
+
+   <section class="product-section-dark py-5" id="services">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h1 class="section-title text-white">
+        <span class="title-highlight">Comprehensive</span> Trading Products
+      </h1>
+      <p class="section-description">
+        Explore our diverse range of trading instruments designed to meet every investment strategy and goal.
+      </p>
+    </div>
+
+    <!-- Copy Trading -->
+    <div class="product-feature row align-items-center mb-5">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-users rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Copy Trading</h2>
+        <p class="feature-description">
+          Automatically replicate the trades of successful investors in real-time. Mirror strategies with customizable risk parameters.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Follow unlimited traders</li>
+            <li>Customize copy amounts</li>
+            <li>Set risk limits</li>
+            <li>Real-time performance tracking</li>
+            <li>One-click copy setup</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/copy-trading.webp" alt="Copy Trading" />
+      </div>
+    </div>
+
+    <!-- Staking -->
+    <div class="product-feature row align-items-center mb-5 flex-row-reverse">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-university rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Staking</h2>
+        <p class="feature-description">
+          Earn passive income by staking your crypto assets with flexible lock-up periods and competitive yields.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>High APY rates</li>
+            <li>Multiple cryptocurrencies supported</li>
+            <li>Flexible and fixed terms</li>
+            <li>Compound interest options</li>
+            <li>Automatic rewards distribution</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/staking.avif" alt="Staking" />
+      </div>
+    </div>
+
+    <!-- ETF -->
+    <div class="product-feature row align-items-center mb-5">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-bar-chart rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">ETF</h2>
+        <p class="feature-description">
+          Invest in diversified ETFs that track indices, sectors, commodities, and more with lower fees.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Sector-specific ETFs</li>
+            <li>Global market coverage</li>
+            <li>Low expense ratios</li>
+            <li>Dividend reinvestment</li>
+            <li>Fractional share investing</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/ETF.jpg" alt="ETF" />
+      </div>
+    </div>
+
+    <!-- Stock -->
+    <div class="product-feature row align-items-center mb-5 flex-row-reverse">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-line-chart rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Stock</h2>
+        <p class="feature-description">
+          Trade thousands of stocks worldwide with advanced charting tools and commission-free trading on select markets.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Global stock access</li>
+            <li>Advanced technical analysis</li>
+            <li>Fundamental data</li>
+            <li>Extended hours trading</li>
+            <li>Dividend tracking</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/stock.avif" alt="Stock" />
+      </div>
+    </div>
+
+    <!-- CFD -->
+    <div class="product-feature row align-items-center mb-5">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-usd rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">CFD</h2>
+        <p class="feature-description">
+          Trade CFDs on multiple markets with leverage. Speculate on rising or falling prices without owning assets.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>High leverage options</li>
+            <li>Short selling capability</li>
+            <li>Tight spreads</li>
+            <li>Negative balance protection</li>
+            <li>Hedging capabilities</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/CDF.jpg" alt="CFD" />
+      </div>
+    </div>
+
+    <!-- Shares -->
+    <div class="product-feature row align-items-center mb-5 flex-row-reverse">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-briefcase rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Shares</h2>
+        <p class="feature-description">
+          Invest in company shares with ownership rights, dividend access, and IPO opportunities.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Fractional shares</li>
+            <li>Dividend reinvestment</li>
+            <li>Shareholder benefits</li>
+            <li>IPO access</li>
+            <li>Portfolio builder tools</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/shares.jpg" alt="Shares" />
+      </div>
+    </div>
+
+    <!-- Metals -->
+    <div class="product-feature row align-items-center mb-5">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-diamond rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Metals</h2>
+        <p class="feature-description">
+          Trade gold, silver, platinum, and palladium with spot, futures, and delivery options.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Physical delivery options</li>
+            <li>Spot and futures trading</li>
+            <li>Competitive spreads</li>
+            <li>24-hour trading</li>
+            <li>Market insights and analysis</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/gold.jpg" alt="Metals" />
+      </div>
+    </div>
+
+    <!-- Indices -->
+    <div class="product-feature row align-items-center mb-5 flex-row-reverse">
+      <div class="col-lg-6 col-md-12 feature-content">
+        <div class="feature-icon mb-3 text-primary"><i class="fa fa-area-chart rounded-circle bg-primary text-white p-3"></i></div>
+        <h2 class="feature-title">Indices</h2>
+        <p class="feature-description">
+          Trade major indices like S&amp;P 500, NASDAQ, FTSE 100 and more with extended hours and multiple contract sizes.
+        </p>
+        <div class="feature-box">
+          <h3 class="feature-box-title">Key Features</h3>
+          <ul class="feature-list">
+            <li>Global indices coverage</li>
+            <li>Cash and futures indices</li>
+            <li>Out-of-hours trading</li>
+            <li>Index-linked products</li>
+            <li>Economic calendar integration</li>
+          </ul>
+        </div>
+        <a href="#" class="cta-button mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6 col-md-12 feature-image text-center">
+        <img src="assets/image/imdices.jpg" alt="Indices" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   
+   <!-- <section class="services-section" id="services">
+    <div class="container">
+        <div class="text-center mb-5 pb-4">
+            <h2 class="section-title">our services</h2>
+        
+            <p class="services-description">
+                Here at Kertcapitals, our mission is to facilitate the global free flow of digital value.
+            </p>
+            <p class="services-description-extended">
+                Kertcapitals believes that technological progress will revolutionize the way we
+                create and distribute value. One day, everyone will be involved with crypto
+            </p>
+            <p class="services-description-extended">
+                Technology-Driven Products: We are leveraging cutting-edge technologies to create useful
+                services to improve accessibility to the blockchain revolution.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-id-card"></i>
                         </div>
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "The multilingual support and global community aspect is fantastic. I can connect with
-                                traders worldwide and learn different strategies. The platform's reliability during high
-                                volatility periods has been impressive. Definitely my go-to trading platform."
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
-                                    <img src="assets/image/person-6.jpg" alt="" class="w-100 h-100 object-fit-cover">
-                                </div>
-                                <div class="author-info">
-                                    <h6>Luis Rodriguez</h6>
-                                    <small>Forex Trader | Madrid</small>
-                                </div>
-                            </div>
-                        </div>
+                        <h4 class="service-title">KYC</h4>
                     </div>
                 </div>
-            </div>
 
-            <div class="carousel-indicators d-none">
-                <div class="indicator-dot active" onclick="currentSlide(1)"></div>
-                <div class="indicator-dot" onclick="currentSlide(2)"></div>
-                <div class="indicator-dot" onclick="currentSlide(3)"></div>
-            </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h4 class="service-title">Crypto Banking</h4>
+                    </div>
+                </div>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">99.99%</span>
-                    <div class="stat-label">Accuracy rate</div>
-                    <div class="stat-sublabel">in fulfilling orders</div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="service-title">Fast transaction</h4>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">5,000+</span>
-                    <div class="stat-label">Startup businesses</div>
-                    <div class="stat-sublabel">Partner with Ameritrades</div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4 class="service-title">Asset management</h4>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">98%</span>
-                    <div class="stat-label">Happy Clients</div>
-                    <div class="stat-sublabel">this year alone</div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="service-title">Real Time Update<br>guaranteed</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="service-title">Asset security</h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="company" class="about-us-section">
+    </div>
+</section> -->
+    <section class="about-us-section" id="about">
         <div class="container">
             <div class="text-center mb-5 pb-3">
                 <h2 class="section-title">About Us</h2>
-                <p class="about-us-subtitle">Dive down the history of Kertcapitals</p>
+                <!-- <p class="about-us-subtitle">Dive down the history of Kertcapitals</p> -->
             </div>
 
             <div class="row g-4">
@@ -2497,11 +2788,6 @@ footer {
                         <i class="fas fa-wallet card-bg-icon"></i>
                     </div>
                 </div>
-
-
-
-
-
                 <div class="col-lg-5">
                     <div class="about-card card-partner">
                         <div class="card-content">
@@ -2539,6 +2825,179 @@ footer {
             </div>
         </div>
     </section>
+                    <section class="testimonials-section" >
+  <div class="container">
+    <h2 class="testimonials-title">Loved Across the Globe</h2>
+
+    <!-- Bootstrap Carousel -->
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "Kertcapitals is a financial wizard. Their ability to foresee market trends and recommend
+                  timely actions is remarkable. I've achieved significant growth in my investments under
+                  their guidance. They're not just financial advisors; they're strategic partners in
+                  wealth-building."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-1.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Miller</h6>
+                    <small>Crypto Enthusiast | Cosmos</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- This one shows only on lg+, hidden on md- -->
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "I've been a client of Kertcapitals for years, and their dedication to my financial success
+                  has never wavered. Their well-rounded expertise covers everything from retirement
+                  planning to tax-efficient investing. They're an invaluable asset in securing my
+                  financial future."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-2.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Yousaf</h6>
+                    <small>Retirement Planner | Nebula</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "The copy trading feature is game-changing! I connected with top performers and my
+                  portfolio grew by 45% in just 6 months. The platform is intuitive and the community
+                  aspect makes trading feel less isolating. Highly recommend for both beginners and
+                  experts."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-3.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Sarah Chen</h6>
+                    <small>Day Trader | Singapore</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "What sets Kertcapitals apart is their transparency and risk management. Every trade is
+                  tracked, every strategy is explained. I've learned more about trading in 3 months here
+                  than in years of going solo. The inverse feature saved me from major losses!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-4.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Robert Kim</h6>
+                    <small>Portfolio Manager | Seoul</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "From a complete novice to generating consistent monthly returns - Kertcapitals made it
+                  possible. The educational resources, combined with real-time copying, created the
+                  perfect learning environment. My confidence in trading has skyrocketed."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-4.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Amanda Torres</h6>
+                    <small>New Trader | Miami</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  "The multilingual support and global community aspect is fantastic. I can connect with
+                  traders worldwide and learn different strategies. The platform's reliability during high
+                  volatility periods has been impressive. Definitely my go-to trading platform."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar overflow-hidden" style="width: 50px; height: 50px;">
+                    <img src="assets/image/person-6.jpg" alt="" class="w-100 h-100 object-fit-cover">
+                  </div>
+                  <div class="author-info">
+                    <h6>Luis Rodriguez</h6>
+                    <small>Forex Trader | Madrid</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button> 
+      <button class="carousel-control-next d-none" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid mt-5">
+      <div class="stat-item">
+        <span class="stat-number">99.99%</span>
+        <div class="stat-label">Accuracy rate</div>
+        <div class="stat-sublabel">in fulfilling orders</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5,000+</span>
+        <div class="stat-label">Startup businesses</div>
+        <div class="stat-sublabel">Partner with Ameritrades</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <div class="stat-label">Happy Clients</div>
+        <div class="stat-sublabel">this year alone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <section class="tools-section">
         <div class="container">
@@ -2611,10 +3070,10 @@ footer {
 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-shield"></i>
                     </div>
-                    <h3 class="tool-title">Cashback Bonus</h3>
-                    <p class="tool-description">Get a 50% Cashback Bonus that converts to cash when you trade,
+                    <h3 class="tool-title">Constumer protection</h3>
+                    <p class="tool-description">Empowering consumers with knowledge and potection while
                         maximizing your trading potential.</p>
                     <a href="#" class="tool-link">
                         Find out more <i class="fas fa-arrow-right"></i>
@@ -2623,154 +3082,8 @@ footer {
             </div>
         </div>
     </section>
-  <!-- live price section -->
-   
 
-   <section class="live-price-section" id="live-price">
-        <div class="container">
-             <h2 class="section-title text-center">live price</h2>
-              <p class="text-center about-us-subtitle">Here whats going on in the market at the moment.</p>
-
-              <div class="row">
-      <div class="col-sm-6 col-xs-12 py-1" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000">
-                        <!-- column start -->
-                        <div style="height:460px; background-color: #1D2330; overflow:hidden; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-                            <div style="height:440px; padding:0px; margin:0px; width: 100%;">
-                                <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=859&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column end -->
-                    <div class="col-sm-6 col-xs-12 py-1" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1000">
-                        <!-- column start -->
-                        <div style="height:460px; background-color: #1D2330; overflow:hidden; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; padding:1px;padding: 0px; margin: 0px; width: 100%;">
-                            <div style="height:440px; padding:0px; margin:0px; width: 100%;">
-                                <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=145&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column end -->
-                </div>
-
-        </div>
-   </section>
-   <section class="services-section" id="services">
-    <div class="container">
-        <div class="text-center mb-5 pb-4">
-            <h2 class="section-title">our services</h2>
-            <!-- <h3 class="services-subtitle">SMART MISSION MANAGEMENT</h3> -->
-            <p class="services-description">
-                Here at Kertcapitals, our mission is to facilitate the global free flow of digital value.
-            </p>
-            <p class="services-description-extended">
-                Kertcapitals believes that technological progress will revolutionize the way we
-                create and distribute value. One day, everyone will be involved with crypto
-            </p>
-            <p class="services-description-extended">
-                Technology-Driven Products: We are leveraging cutting-edge technologies to create useful
-                services to improve accessibility to the blockchain revolution.
-            </p>
-        </div>
-
-        <div class="services-grid">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <h4 class="service-title">KYC</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h4 class="service-title">Crypto Banking</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4 class="service-title">Fast transaction</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <h4 class="service-title">Asset management</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h4 class="service-title">Real Time Update<br>guaranteed</h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4 class="service-title">Asset security</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- NEW CONTACT SECTION -->
-<section class="contact-section" id="contact">
-    <div class="container">
-        <div class="contact-wrapper">
-            <div class="row g-0">
-                <div class="col-lg-7">
-                    <div class="contact-form-wrapper">
-                        <h2>Send a message</h2>
-                        <form>
-                            <div class="form-group">
-                                <label for="fullName">Full Name:</label>
-                                <input type="text" class="form-control" id="fullName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message:</label>
-                                <textarea class="form-control" id="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="contact-info-wrapper">
-                        <h3>Contact us</h3>
-                        <div class="contact-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:support@essenceplatform.com">support@kertcapitals.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
- <section class="three-steps-section">
+     <section class="three-steps-section">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Start Trading in 3 Simple <span>Steps</span></h2>
@@ -2810,159 +3123,114 @@ footer {
             </div>
         </div>
     </section>
- <footer class="trade-footer">
-        <div class="trade-footer-container">
-            <div class="trade-footer-main">
-                <!-- Column 1: Logo and Info -->
-                <div class="trade-footer-column">
-                    <a href="#" class="trade-footer-logo">Kertcapitals</a>
-                    <p class="trade-footer-tagline">
-                        The leading platform for copy trading and diversified investment opportunities across global
-                        markets.
-                    </p>
-                    <div class="trade-footer-social">
-                        <a href="#" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
-                                </path>
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                            </svg>
-                        </a>
+
+<!-- NEW CONTACT SECTION -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="row g-0">
+                <div class="col-lg-7">
+                    <div class="contact-form-wrapper">
+                        <h2>Send a message</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message:</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                        </form>
                     </div>
                 </div>
-
-                <!-- Column 2: Products -->
-                <div class="trade-footer-column">
-                    <h3 class="trade-footer-heading">Products</h3>
-                    <ul class="trade-footer-links">
-                        <li><a href="#">Copy Trading</a></li>
-                        <li><a href="#">Staking</a></li>
-                        <li><a href="#">ETF Trading</a></li>
-                        <li><a href="#">Stock Trading</a></li>
-                        <li><a href="#">CFD Trading</a></li>
-                        <li><a href="#">Shares</a></li>
-                        <li><a href="#">Metals</a></li>
-                        <li><a href="#">Indices</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Company -->
-                <div class="trade-footer-column">
-                    <h3 class="trade-footer-heading">Company</h3>
-                    <ul class="trade-footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contact Us -->
-                <div class="trade-footer-column">
-                    <h3 class="trade-footer-heading">Contact Us</h3>
-                    <div class="trade-footer-contact-item">
-                        <div class="trade-footer-contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <div class="trade-footer-contact-text">
-                            123 Trading Street, Financial District<br>
-                            New York, NY 10001
-                        </div>
-                    </div>
-                    <div class="trade-footer-contact-item">
-                        <div class="trade-footer-contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
-                        </div>
-                        <div class="trade-footer-contact-text">
-                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
-                        </div>
-                    </div>
-                    <div class="trade-footer-contact-item">
-                        <div class="trade-footer-contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div class="trade-footer-contact-text">
-                            <a href="mailto:support@Kertcapitals.com">support@kertcapitals.com</a>
+                <div class="col-lg-5">
+                    <div class="contact-info-wrapper">
+                        <h3>Contact us</h3>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:support@essenceplatform.com">support@kertcapitals.com</a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="trade-footer-divider"></div>
-
-            <div class="trade-footer-bottom">
-                <div class="trade-footer-copyright">
-                    © <span id="copyright-year">2025</span> Kertcapitals.. All rights reserved.
-                </div>
-
-                <div class="trade-footer-legal">
-                    <a href="#">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Risk Disclosure</a>
-                </div>
-            </div>
-
-            <div class="trade-footer-disclaimer">
-                Risk Warning: Trading financial instruments carries a high level of risk to your capital with the
-                possibility of losing more than your initial investment. Trading is not suitable for everyone and you
-                should ensure you understand the risks involved.
             </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+<footer class="footer bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo + About -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <a href="#" class="d-flex align-items-center mb-3">
+          <img src="assets/image/logo.png" alt="Logo" style="height: 40px;">
+          <span class="ms-2 fw-bold">Kertcapitals</span>
+        </a>
+        <p class="small">
+          Kertcapitals provides secure and innovative investment solutions, helping clients trade smarter and grow wealth globally.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <h5 class="fw-bold mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-light text-decoration-none d-block mb-2">Home</a></li>
+          <li><a href="#about" class="text-light text-decoration-none d-block mb-2">About</a></li>
+          <li><a href="#services" class="text-light text-decoration-none d-block mb-2">Services</a></li>
+          <li><a href="#contact" class="text-light text-decoration-none d-block">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <h5 class="fw-bold mb-3">Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none d-block mb-2">Copy Trading</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block mb-2">Wealth Management</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block mb-2">Crypto Investments</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block">Forex Solutions</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact + Socials -->
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <h5 class="fw-bold mb-3">Get in Touch</h5>
+        <p class="small mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Wall Street, New York</p>
+        <p class="small mb-2"><i class="bi bi-telephone me-2"></i> +1 234 567 890</p>
+        <p class="small mb-3"><i class="bi bi-envelope me-2"></i> support@kertcapitals.com</p>
+        <div>
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-light">
+
+    <!-- Bottom -->
+    <div class="text-center small">
+      © <span id="year"></span> Kertcapitals. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
+          document.getElementById("year").textContent = new Date().getFullYear();
         class AnimatedHamburgerNav {
             constructor() {
                 this.hamburgerMenu = document.getElementById('hamburgerMenu');
